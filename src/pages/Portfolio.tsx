@@ -4,6 +4,13 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useState } from "react";
 import { Play, Filter } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -15,6 +22,33 @@ const Portfolio = () => {
     "Motion Graphics",
     "AI Videos",
     "Graphic Design",
+  ];
+
+  const featuredVideos = [
+    {
+      id: "1MwQ5j17UAptLlI-cpj5f9lgtWvuTKRy3",
+      title: "Featured Project 1",
+    },
+    {
+      id: "1P-kfQjhpceXLUz6OvYpqioiNfGNb605J",
+      title: "Featured Project 2",
+    },
+    {
+      id: "1MFwVfy-Vrc_JmJhZWDFFSP1AVcE8RcpV",
+      title: "Featured Project 3",
+    },
+    {
+      id: "1CBg_PMhq0aFKnSq56GVuYvT4fp7ua2k4",
+      title: "Featured Project 4",
+    },
+    {
+      id: "1X_ELTAexZ5zqjVMcIR6eu4bN4zLN6TV3",
+      title: "Featured Project 5",
+    },
+    {
+      id: "1e27EEdyR-6_iRYg7eUc_s0JNDFzUb3cl",
+      title: "Featured Project 6",
+    },
   ];
 
   const projects = [
@@ -98,6 +132,43 @@ const Portfolio = () => {
             A selection of work from Adshub Media – video edits, 3D animations,
             motion graphics, AI videos and design projects.
           </p>
+        </div>
+      </section>
+
+      {/* Featured Videos Carousel */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-12 animate-fade-in">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Featured Work</h2>
+            <p className="text-xl text-muted-foreground">
+              Watch our recent projects in action
+            </p>
+          </div>
+          <Carousel className="w-full max-w-6xl mx-auto">
+            <CarouselContent>
+              {featuredVideos.map((video, index) => (
+                <CarouselItem key={video.id} className="md:basis-1/2 lg:basis-1/2">
+                  <div className="p-4">
+                    <Card className="overflow-hidden bg-card border-border hover:border-accent transition-all duration-300">
+                      <div className="aspect-video bg-secondary">
+                        <iframe
+                          src={`https://drive.google.com/file/d/${video.id}/preview`}
+                          className="w-full h-full"
+                          allow="autoplay"
+                          title={video.title}
+                        />
+                      </div>
+                      <div className="p-4">
+                        <h3 className="text-lg font-bold text-center">{video.title}</h3>
+                      </div>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
         </div>
       </section>
 
