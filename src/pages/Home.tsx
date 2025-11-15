@@ -16,6 +16,13 @@ import {
   Clock,
   Users,
 } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import heroImage from "@/assets/hero-editing-room.jpg";
 
 const Home = () => {
@@ -64,12 +71,32 @@ const Home = () => {
     { number: "24-48hrs", label: "Express Delivery" },
   ];
 
-  const featuredWork = [
-    { title: "YouTube Edit – Tech Channel", category: "Video Editing" },
-    { title: "3D Logo Animation – Brand Intro", category: "3D Animation" },
-    { title: "AI Reels Pack – Fitness Coach", category: "AI Videos" },
-    { title: "Motion Graphics Explainer – SaaS", category: "Motion Graphics" },
-    { title: "Promo Video – Local Business", category: "Video Editing" },
+  const featuredVideos = [
+    {
+      id: "1MwQ5j17UAptLlI-cpj5f9lgtWvuTKRy3",
+      title: "YouTube Edit – Tech Channel",
+      category: "Video Editing",
+    },
+    {
+      id: "1P-kfQjhpceXLUz6OvYpqioiNfGNb605J",
+      title: "3D Logo Animation – Brand Intro",
+      category: "3D Animation",
+    },
+    {
+      id: "1MFwVfy-Vrc_JmJhZWDFFSP1AVcE8RcpV",
+      title: "AI Reels Pack – Fitness Coach",
+      category: "AI Videos",
+    },
+    {
+      id: "1CBg_PMhq0aFKnSq56GVuYvT4fp7ua2k4",
+      title: "Motion Graphics Explainer – SaaS",
+      category: "Motion Graphics",
+    },
+    {
+      id: "1X_ELTAexZ5zqjVMcIR6eu4bN4zLN6TV3",
+      title: "Promo Video – Local Business",
+      category: "Video Editing",
+    },
   ];
 
   const workflowSteps = [
@@ -273,7 +300,7 @@ const Home = () => {
       <section className="py-20 bg-primary">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12 animate-slide-up">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">
               FEATURED WORK
             </h2>
             <p className="text-xl text-muted-foreground">
@@ -281,27 +308,44 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {featuredWork.map((work, index) => (
-              <Card
-                key={index}
-                className="p-6 bg-card border-border hover:border-accent transition-all duration-300 hover:shadow-lg hover:shadow-accent/20 animate-slide-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="aspect-video bg-secondary rounded-lg mb-4 flex items-center justify-center">
-                  <Play className="w-12 h-12 text-accent" />
-                </div>
-                <h3 className="text-xl font-bold mb-2">{work.title}</h3>
-                <p className="text-accent text-sm">{work.category}</p>
-              </Card>
-            ))}
+          <div className="mb-12 max-w-5xl mx-auto">
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent>
+                {featuredVideos.map((video, index) => (
+                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/2">
+                    <Card className="glass-card p-4 hover-lift">
+                      <div className="aspect-video rounded-lg overflow-hidden mb-4">
+                        <iframe
+                          src={`https://drive.google.com/file/d/${video.id}/preview`}
+                          className="w-full h-full"
+                          allow="autoplay"
+                          title={video.title}
+                        />
+                      </div>
+                      <h3 className="text-lg font-bold mb-2">{video.title}</h3>
+                      <div className="inline-block px-3 py-1 bg-accent/20 text-accent rounded-full text-sm font-medium">
+                        {video.category}
+                      </div>
+                    </Card>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="hover-glow" />
+              <CarouselNext className="hover-glow" />
+            </Carousel>
           </div>
 
           <div className="text-center">
             <Link to="/portfolio">
               <Button
                 size="lg"
-                className="bg-cta text-cta-foreground hover:bg-cta/90 font-medium"
+                className="bg-cta text-cta-foreground hover:bg-cta/90 font-medium hover-glow"
               >
                 Open Full Portfolio →
               </Button>
