@@ -1,9 +1,13 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { Play } from "lucide-react";
 
 const Portfolio = () => {
+  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
   const portfolioVideos = [
     { id: "1MwQ5j17UAptLlI-cpj5f9lgtWvuTKRy3" },
     { id: "1P-kfQjhpceXLUz6OvYpqioiNfGNb605J" },
@@ -35,22 +39,43 @@ const Portfolio = () => {
             {portfolioVideos.map((video, index) => (
               <Card 
                 key={video.id} 
-                className="overflow-hidden glass-card hover-lift animate-fade-in" 
+                className="overflow-hidden glass-card hover-lift animate-fade-in cursor-pointer group" 
                 style={{ animationDelay: `${index * 0.1}s` }}
+                onClick={() => setSelectedVideo(video.id)}
               >
-                <div className="aspect-video bg-black flex items-center justify-center">
-                  <iframe
-                    src={`https://drive.google.com/file/d/${video.id}/preview`}
-                    className="w-full h-full"
-                    allow="autoplay"
-                    title={`Portfolio Video ${index + 1}`}
+                <div className="aspect-video bg-black relative">
+                  <img
+                    src={`https://drive.google.com/thumbnail?id=${video.id}&sz=w1000`}
+                    alt={`Portfolio Video ${index + 1}`}
+                    className="w-full h-full object-cover"
                   />
+                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors flex items-center justify-center">
+                    <div className="w-16 h-16 rounded-full bg-primary/90 group-hover:bg-primary flex items-center justify-center transition-all group-hover:scale-110">
+                      <Play className="w-8 h-8 text-primary-foreground fill-primary-foreground" />
+                    </div>
+                  </div>
                 </div>
               </Card>
             ))}
           </div>
         </div>
       </section>
+
+      {/* Video Modal */}
+      <Dialog open={!!selectedVideo} onOpenChange={(open) => !open && setSelectedVideo(null)}>
+        <DialogContent className="max-w-6xl p-0 bg-black border-none">
+          <div className="aspect-video w-full">
+            {selectedVideo && (
+              <iframe
+                src={`https://drive.google.com/file/d/${selectedVideo}/preview`}
+                className="w-full h-full"
+                allow="autoplay"
+                title="Portfolio Video"
+              />
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
 
       {/* CTA Section */}
       <section className="py-20 bg-primary">
