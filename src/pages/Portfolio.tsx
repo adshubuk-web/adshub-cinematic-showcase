@@ -2,8 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { useState } from "react";
-import { Play, Filter } from "lucide-react";
+import { Play } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
@@ -13,17 +12,6 @@ import {
 } from "@/components/ui/carousel";
 
 const Portfolio = () => {
-  const [activeFilter, setActiveFilter] = useState("All");
-
-  const filters = [
-    "All",
-    "Video Editing",
-    "3D Animation",
-    "Motion Graphics",
-    "AI Videos",
-    "Graphic Design",
-  ];
-
   const featuredVideos = [
     {
       id: "1MwQ5j17UAptLlI-cpj5f9lgtWvuTKRy3",
@@ -115,11 +103,6 @@ const Portfolio = () => {
     },
   ];
 
-  const filteredProjects =
-    activeFilter === "All"
-      ? projects
-      : projects.filter((project) => project.category === activeFilter);
-
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -171,37 +154,11 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Filters */}
-      <section className="py-8 bg-background border-b border-border sticky top-20 z-40 backdrop-blur-sm">
-        <div className="container mx-auto px-6">
-          <div className="flex items-center gap-2 mb-4">
-            <Filter className="w-5 h-5 text-accent" />
-            <span className="font-medium">Filter by category:</span>
-          </div>
-          <div className="flex flex-wrap gap-3">
-            {filters.map((filter) => (
-              <Button
-                key={filter}
-                onClick={() => setActiveFilter(filter)}
-                variant={activeFilter === filter ? "default" : "outline"}
-                className={
-                  activeFilter === filter
-                    ? "bg-accent text-accent-foreground hover:bg-accent/90"
-                    : "border-border hover:border-accent"
-                }
-              >
-                {filter}
-              </Button>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Projects Grid */}
       <section className="py-12 bg-background">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredProjects.map((project, index) => (
+            {projects.map((project, index) => (
               <Card
                 key={index}
                 className="overflow-hidden bg-card border-border hover:border-accent transition-all duration-300 hover:shadow-lg hover:shadow-accent/20 animate-slide-up group"
