@@ -165,6 +165,7 @@ const Home = () => {
             </Link>
             <Button
               size="lg"
+              onClick={() => window.open('https://wa.me/447350054689', '_blank')}
               className="bg-cta text-cta-foreground hover:bg-cta/90 font-medium text-lg"
             >
               <Rocket className="mr-2" size={20} />
