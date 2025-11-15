@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Play } from "lucide-react";
 
 const Portfolio = () => {
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
   const portfolioVideos = [
     { id: "1MwQ5j17UAptLlI-cpj5f9lgtWvuTKRy3" },
     { id: "1P-kfQjhpceXLUz6OvYpqioiNfGNb605J" },
@@ -41,7 +42,10 @@ const Portfolio = () => {
                 key={video.id} 
                 className="overflow-hidden glass-card hover-lift animate-fade-in cursor-pointer group" 
                 style={{ animationDelay: `${index * 0.1}s` }}
-                onClick={() => setSelectedVideo(video.id)}
+                onClick={() => {
+                  setSelectedVideo(video.id);
+                  setIsLoading(true);
+                }}
               >
                 <div className="aspect-video bg-black relative">
                   <img
@@ -62,16 +66,38 @@ const Portfolio = () => {
       </section>
 
       {/* Video Modal */}
-      <Dialog open={!!selectedVideo} onOpenChange={(open) => !open && setSelectedVideo(null)}>
+      <Dialog 
+        open={!!selectedVideo} 
+        onOpenChange={(open) => {
+          if (!open) {
+            setSelectedVideo(null);
+            setIsLoading(false);
+          }
+        }}
+      >
         <DialogContent className="max-w-6xl p-0 bg-black border-none">
-          <div className="aspect-video w-full">
+          <DialogTitle className="sr-only">Portfolio Video Player</DialogTitle>
+          <DialogDescription className="sr-only">
+            Video showcase of our portfolio work
+          </DialogDescription>
+          <div className="aspect-video w-full relative">
             {selectedVideo && (
-              <iframe
-                src={`https://drive.google.com/file/d/${selectedVideo}/preview?autoplay=1`}
-                className="w-full h-full"
-                allow="autoplay"
-                title="Portfolio Video"
-              />
+              <>
+                {isLoading && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-black z-10">
+                    <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin" />
+                  </div>
+                )}
+                <iframe
+                  key={selectedVideo}
+                  src={`https://drive.google.com/file/d/${selectedVideo}/preview?autoplay=1`}
+                  className="w-full h-full"
+                  allow="autoplay; encrypted-media; picture-in-picture"
+                  allowFullScreen
+                  title="Portfolio Video"
+                  onLoad={() => setIsLoading(false)}
+                />
+              </>
             )}
           </div>
         </DialogContent>
