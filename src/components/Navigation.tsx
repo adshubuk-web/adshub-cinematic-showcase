@@ -60,14 +60,16 @@ const Navigation = () => {
                 <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-accent rounded-full animate-fade-in" />
               )}
             </Link>
-            <a href="https://wa.me/+447350054689" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-accent transition-colors">
+            <a href="https://wa.me/447350054689" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-accent transition-colors">
               Contact
             </a>
             <Button 
-              onClick={() => window.location.href = 'https://wa.me/+447350054689'}
+              asChild
               className="bg-cta text-cta-foreground hover:bg-cta/90 font-medium hover-glow"
             >
-              Get a Quote
+              <a href="https://wa.me/447350054689" target="_blank" rel="noopener noreferrer">
+                Get a Quote
+              </a>
             </Button>
           </div>
 
@@ -110,14 +112,16 @@ const Navigation = () => {
             >
               About Us
             </Link>
-            <a href="https://wa.me/+447350054689" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-accent transition-colors">
+            <a href="https://wa.me/447350054689" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-accent transition-colors">
               Contact
             </a>
             <Button 
-              onClick={() => window.location.href = 'https://wa.me/+447350054689'}
+              asChild
               className="bg-cta text-cta-foreground hover:bg-cta/90 font-medium w-full hover-glow"
             >
-              Get a Quote
+              <a href="https://wa.me/447350054689" target="_blank" rel="noopener noreferrer">
+                Get a Quote
+              </a>
             </Button>
           </div>
         )}
