@@ -373,7 +373,7 @@ const Home = () => {
           setIsLoading(false);
         }
       }}>
-        <DialogContent className="max-w-5xl w-full p-0">
+        <DialogContent className="max-w-6xl p-0 bg-black border-none">
           <DialogTitle className="sr-only">Featured Video</DialogTitle>
           <DialogDescription className="sr-only">
             Watch our featured video showcasing our work
@@ -382,7 +382,7 @@ const Home = () => {
             {selectedVideo && (
               <>
                 {isLoading && (
-                  <div className="absolute inset-0 flex items-center justify-center z-10">
+                  <div className="absolute inset-0 flex items-center justify-center bg-black z-10">
                     <Loader2 className="w-8 h-8 animate-spin text-white" />
                   </div>
                 )}
