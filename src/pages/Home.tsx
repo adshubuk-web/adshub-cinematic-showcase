@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import AnimatedCounter from "@/components/AnimatedCounter";
 import { Link } from "react-router-dom";
 import {
   Video,
@@ -72,9 +73,9 @@ const Home = () => {
   ];
 
   const stats = [
-    { number: "200+", label: "Edited Videos" },
-    { number: "50+", label: "Clients" },
-    { number: "24-48hrs", label: "Express Delivery" },
+    { number: "200+", label: "Edited Videos", animate: true, value: 200, suffix: "+" },
+    { number: "50+", label: "Clients", animate: true, value: 50, suffix: "+" },
+    { number: "24-48hrs", label: "Express Delivery", animate: false },
   ];
 
   const featuredVideos = [
@@ -295,7 +296,15 @@ const Home = () => {
                   className="p-6 bg-card border-accent text-center"
                 >
                   <div className="text-4xl font-bold text-accent mb-2">
-                    {stat.number}
+                    {stat.animate ? (
+                      <AnimatedCounter 
+                        end={stat.value!} 
+                        suffix={stat.suffix} 
+                        duration={2500}
+                      />
+                    ) : (
+                      stat.number
+                    )}
                   </div>
                   <div className="text-muted-foreground">{stat.label}</div>
                 </Card>
