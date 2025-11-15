@@ -2,83 +2,68 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import {
-  Award,
-  Target,
-  Users,
-  Clock,
-  CheckCircle,
-  Sparkles,
-} from "lucide-react";
+import { Award, Target, Users, Clock, CheckCircle, Sparkles } from "lucide-react";
 import teamSanjeev from "@/assets/team-sanjeev.png";
 import teamGourab from "@/assets/team-gourab.png";
-
 const About = () => {
-  const values = [
-    {
-      icon: Award,
-      title: "Quality First",
-      description:
-        "We never compromise on quality. Every project gets our full attention to detail.",
-    },
-    {
-      icon: Users,
-      title: "Clear Communication",
-      description:
-        "Regular updates and transparent communication throughout the project.",
-    },
-    {
-      icon: Clock,
-      title: "On-Time Delivery",
-      description:
-        "We respect deadlines and deliver projects on time, every time.",
-    },
-    {
-      icon: Sparkles,
-      title: "Long-Term Partnerships",
-      description:
-        "Building lasting relationships with clients based on trust and results.",
-    },
-  ];
-
-  const tools = [
-    { name: "Adobe Premiere Pro", category: "Video Editing" },
-    { name: "After Effects", category: "Motion Graphics" },
-    { name: "Blender", category: "3D Animation" },
-    { name: "Photoshop", category: "Design" },
-    { name: "Illustrator", category: "Design" },
-    { name: "DaVinci Resolve", category: "Color Grading" },
-    { name: "Cinema 4D", category: "3D Animation" },
-    { name: "AI Video Tools", category: "AI Production" },
-    { name: "AI Voice Tools", category: "AI Production" },
-  ];
-
-  const clientTypes = [
-    "Content Creators & YouTubers",
-    "Educational Institutions",
-    "E-commerce Brands",
-    "Marketing Agencies",
-    "Tech Startups",
-    "Small Businesses",
-  ];
-
-  const team = [
-    {
-      name: "Sanjeev Singh",
-      role: "Founder",
-      description: "I create cinematic videos, 3D animations, motion graphics and AI-powered content that help brands and creators grow. My focus is clean visuals, strong storytelling and fast, professional delivery.",
-      image: teamSanjeev,
-    },
-    {
-      name: "Gourab Sarkar",
-      role: "Senior Video Editor & Script Writer",
-      description: "He creates high-level cinematic edits and powerful scripts that turn ideas into engaging, high-retention videos. His blend of storytelling, editing mastery and creativity makes every project shine.",
-      image: teamGourab,
-    },
-  ];
-
-  return (
-    <div className="min-h-screen bg-background">
+  const values = [{
+    icon: Award,
+    title: "Quality First",
+    description: "We never compromise on quality. Every project gets our full attention to detail."
+  }, {
+    icon: Users,
+    title: "Clear Communication",
+    description: "Regular updates and transparent communication throughout the project."
+  }, {
+    icon: Clock,
+    title: "On-Time Delivery",
+    description: "We respect deadlines and deliver projects on time, every time."
+  }, {
+    icon: Sparkles,
+    title: "Long-Term Partnerships",
+    description: "Building lasting relationships with clients based on trust and results."
+  }];
+  const tools = [{
+    name: "Adobe Premiere Pro",
+    category: "Video Editing"
+  }, {
+    name: "After Effects",
+    category: "Motion Graphics"
+  }, {
+    name: "Blender",
+    category: "3D Animation"
+  }, {
+    name: "Photoshop",
+    category: "Design"
+  }, {
+    name: "Illustrator",
+    category: "Design"
+  }, {
+    name: "DaVinci Resolve",
+    category: "Color Grading"
+  }, {
+    name: "Cinema 4D",
+    category: "3D Animation"
+  }, {
+    name: "AI Video Tools",
+    category: "AI Production"
+  }, {
+    name: "AI Voice Tools",
+    category: "AI Production"
+  }];
+  const clientTypes = ["Content Creators & YouTubers", "Educational Institutions", "E-commerce Brands", "Marketing Agencies", "Tech Startups", "Small Businesses"];
+  const team = [{
+    name: "Sanjeev Singh",
+    role: "Founder",
+    description: "I create cinematic videos, 3D animations, motion graphics and AI-powered content that help brands and creators grow. My focus is clean visuals, strong storytelling and fast, professional delivery.",
+    image: teamSanjeev
+  }, {
+    name: "Gourab Sarkar",
+    role: "Senior Video Editor & Script Writer",
+    description: "He creates high-level cinematic edits and powerful scripts that turn ideas into engaging, high-retention videos. His blend of storytelling, editing mastery and creativity makes every project shine.",
+    image: teamGourab
+  }];
+  return <div className="min-h-screen bg-background">
       <Navigation />
 
       {/* Hero Section */}
@@ -169,28 +154,18 @@ const About = () => {
             Meet The Team
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {team.map((member, index) => (
-              <Card
-                key={index}
-                className="p-8 bg-card border-border hover:border-accent transition-all duration-300 hover:shadow-lg hover:shadow-accent/20 animate-slide-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
+            {team.map((member, index) => <Card key={index} className="p-8 bg-card border-border hover:border-accent transition-all duration-300 hover:shadow-lg hover:shadow-accent/20 animate-slide-up" style={{
+            animationDelay: `${index * 0.1}s`
+          }}>
                 <div className="flex flex-col items-center text-center">
                   <div className="w-32 h-32 rounded-full overflow-hidden mb-6 border-4 border-accent/20 hover:border-accent transition-all duration-300">
-                    <img 
-                      src={member.image} 
-                      alt={`${member.name} - ${member.role}`}
-                      className="w-full h-full object-cover"
-                    />
+                    <img src={member.image} alt={`${member.name} - ${member.role}`} className="w-full h-full object-cover" />
                   </div>
                   <h3 className="text-2xl font-bold mb-2">{member.name}</h3>
                   <p className="text-accent font-semibold mb-4">{member.role}</p>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {member.description}
-                  </p>
+                  
                 </div>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -202,17 +177,13 @@ const About = () => {
             What We Believe
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values.map((value, index) => (
-              <Card
-                key={index}
-                className="p-6 bg-card border-border hover:border-accent transition-all duration-300 hover:shadow-lg hover:shadow-accent/20 animate-slide-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
+            {values.map((value, index) => <Card key={index} className="p-6 bg-card border-border hover:border-accent transition-all duration-300 hover:shadow-lg hover:shadow-accent/20 animate-slide-up" style={{
+            animationDelay: `${index * 0.1}s`
+          }}>
                 <value.icon className="w-12 h-12 text-accent mb-4" />
                 <h3 className="text-xl font-bold mb-3">{value.title}</h3>
                 <p className="text-muted-foreground">{value.description}</p>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -224,16 +195,12 @@ const About = () => {
             Tools We Use
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
-            {tools.map((tool, index) => (
-              <Card
-                key={index}
-                className="p-4 bg-card border-border hover:border-accent transition-all duration-300 text-center animate-slide-up"
-                style={{ animationDelay: `${index * 0.05}s` }}
-              >
+            {tools.map((tool, index) => <Card key={index} className="p-4 bg-card border-border hover:border-accent transition-all duration-300 text-center animate-slide-up" style={{
+            animationDelay: `${index * 0.05}s`
+          }}>
                 <div className="font-bold mb-1">{tool.name}</div>
                 <div className="text-sm text-accent">{tool.category}</div>
-              </Card>
-            ))}
+              </Card>)}
           </div>
           <p className="text-center text-muted-foreground mt-8 text-lg">
             Industry-standard tools combined with cutting-edge AI technology
@@ -248,18 +215,14 @@ const About = () => {
             Who We Work With
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {clientTypes.map((client, index) => (
-              <Card
-                key={index}
-                className="p-6 bg-card border-border hover:border-accent transition-all duration-300 animate-slide-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
+            {clientTypes.map((client, index) => <Card key={index} className="p-6 bg-card border-border hover:border-accent transition-all duration-300 animate-slide-up" style={{
+            animationDelay: `${index * 0.1}s`
+          }}>
                 <div className="flex items-center gap-3">
                   <CheckCircle className="w-6 h-6 text-accent flex-shrink-0" />
                   <span className="text-lg font-medium">{client}</span>
                 </div>
-              </Card>
-            ))}
+              </Card>)}
           </div>
           <p className="text-center text-muted-foreground mt-8 text-lg max-w-3xl mx-auto">
             We work with creators, educators, brands, agencies, and startups to
@@ -279,18 +242,13 @@ const About = () => {
             Ready to start your project? Let's discuss how we can help bring
             your vision to life.
           </p>
-          <Button
-            size="lg"
-            className="bg-cta text-cta-foreground hover:bg-cta/90 font-medium text-lg"
-          >
+          <Button size="lg" className="bg-cta text-cta-foreground hover:bg-cta/90 font-medium text-lg">
             Contact Adshub Media →
           </Button>
         </div>
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default About;
