@@ -318,9 +318,9 @@ const Home = () => {
             >
               <CarouselContent>
                 {featuredVideos.map((video, index) => (
-                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/2">
+                  <CarouselItem key={index} className="md:basis-1/3 lg:basis-1/4">
                     <Card className="glass-card p-4 hover-lift">
-                      <div className="aspect-video rounded-lg overflow-hidden mb-4">
+                      <div className="aspect-[9/16] rounded-lg overflow-hidden mb-4">
                         <iframe
                           src={`https://drive.google.com/file/d/${video.id}/preview`}
                           className="w-full h-full"
