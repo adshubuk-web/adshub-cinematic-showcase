@@ -10,6 +10,8 @@ import {
   CheckCircle,
   Sparkles,
 } from "lucide-react";
+import teamSanjeev from "@/assets/team-sanjeev.png";
+import teamGourab from "@/assets/team-gourab.png";
 
 const About = () => {
   const values = [
@@ -65,13 +67,13 @@ const About = () => {
       name: "Sanjeev Singh",
       role: "Founder",
       description: "I create cinematic videos, 3D animations, motion graphics and AI-powered content that help brands and creators grow. My focus is clean visuals, strong storytelling and fast, professional delivery.",
-      initials: "SS",
+      image: teamSanjeev,
     },
     {
       name: "Gourab Sarkar",
       role: "Senior Video Editor & Script Writer",
       description: "He creates high-level cinematic edits and powerful scripts that turn ideas into engaging, high-retention videos. His blend of storytelling, editing mastery and creativity makes every project shine.",
-      initials: "GS",
+      image: teamGourab,
     },
   ];
 
@@ -174,10 +176,12 @@ const About = () => {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-24 h-24 rounded-full bg-gradient-to-br from-accent to-accent/60 flex items-center justify-center mb-6">
-                    <span className="text-3xl font-bold text-primary-foreground">
-                      {member.initials}
-                    </span>
+                  <div className="w-32 h-32 rounded-full overflow-hidden mb-6 border-4 border-accent/20 hover:border-accent transition-all duration-300">
+                    <img 
+                      src={member.image} 
+                      alt={`${member.name} - ${member.role}`}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <h3 className="text-2xl font-bold mb-2">{member.name}</h3>
                   <p className="text-accent font-semibold mb-4">{member.role}</p>
