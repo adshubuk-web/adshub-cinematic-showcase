@@ -67,7 +67,7 @@ const Portfolio = () => {
           <div className="aspect-video w-full">
             {selectedVideo && (
               <iframe
-                src={`https://drive.google.com/file/d/${selectedVideo}/preview`}
+                src={`https://drive.google.com/file/d/${selectedVideo}/preview?autoplay=1`}
                 className="w-full h-full"
                 allow="autoplay"
                 title="Portfolio Video"
