@@ -379,20 +379,24 @@ const Home = () => {
             Watch our featured video showcasing our work
           </DialogDescription>
           <div className="aspect-video bg-black relative">
-            {isLoading && (
-              <div className="absolute inset-0 flex items-center justify-center">
-                <Loader2 className="w-8 h-8 animate-spin text-white" />
-              </div>
+            {selectedVideo && (
+              <>
+                {isLoading && (
+                  <div className="absolute inset-0 flex items-center justify-center z-10">
+                    <Loader2 className="w-8 h-8 animate-spin text-white" />
+                  </div>
+                )}
+                <iframe
+                  key={selectedVideo}
+                  src={`https://drive.google.com/file/d/${selectedVideo}/preview`}
+                  className="w-full h-full"
+                  allow="encrypted-media; picture-in-picture"
+                  allowFullScreen
+                  title="Featured Video"
+                  onLoad={() => setIsLoading(false)}
+                />
+              </>
             )}
-            <iframe
-              key={selectedVideo}
-              src={`https://drive.google.com/file/d/${selectedVideo}/preview`}
-              className="w-full h-full"
-              allow="encrypted-media; picture-in-picture"
-              allowFullScreen
-              title="Featured Video"
-              onLoad={() => setIsLoading(false)}
-            />
           </div>
         </DialogContent>
       </Dialog>
