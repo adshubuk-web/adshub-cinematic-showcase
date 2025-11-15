@@ -90,9 +90,9 @@ const Portfolio = () => {
                 )}
                 <iframe
                   key={selectedVideo}
-                  src={`https://drive.google.com/file/d/${selectedVideo}/preview?autoplay=1`}
+                  src={`https://drive.google.com/file/d/${selectedVideo}/preview`}
                   className="w-full h-full"
-                  allow="autoplay; encrypted-media; picture-in-picture"
+                  allow="encrypted-media; picture-in-picture"
                   allowFullScreen
                   title="Portfolio Video"
                   onLoad={() => setIsLoading(false)}
