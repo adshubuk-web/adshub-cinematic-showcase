@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
@@ -23,9 +24,14 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { Loader2 } from "lucide-react";
 import heroImage from "@/assets/hero-editing-room.jpg";
 
 const Home = () => {
+  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+
   const services = [
     {
       icon: Video,
@@ -320,13 +326,23 @@ const Home = () => {
                 {featuredVideos.map((video, index) => (
                   <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/2">
                     <Card className="glass-card p-4 hover-lift">
-                      <div className="aspect-video rounded-lg overflow-hidden flex items-center justify-center bg-black">
-                        <iframe
-                          src={`https://drive.google.com/file/d/${video.id}/preview`}
-                          className="w-full h-full"
-                          allow="autoplay"
-                          title={video.title}
+                      <div 
+                        className="aspect-video rounded-lg overflow-hidden flex items-center justify-center bg-black relative group cursor-pointer"
+                        onClick={() => {
+                          setSelectedVideo(video.id);
+                          setIsLoading(true);
+                        }}
+                      >
+                        <img
+                          src={`https://drive.google.com/thumbnail?id=${video.id}&sz=w1000`}
+                          alt={video.title}
+                          className="w-full h-full object-cover"
                         />
+                        <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors flex items-center justify-center">
+                          <div className="bg-white/90 rounded-full p-4 transform group-hover:scale-110 transition-transform">
+                            <Play className="w-8 h-8 text-black fill-black" />
+                          </div>
+                        </div>
                       </div>
                     </Card>
                   </CarouselItem>
@@ -349,6 +365,37 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Video Modal */}
+      <Dialog open={!!selectedVideo} onOpenChange={(open) => {
+        if (!open) {
+          setSelectedVideo(null);
+          setIsLoading(false);
+        }
+      }}>
+        <DialogContent className="max-w-5xl w-full p-0">
+          <DialogTitle className="sr-only">Featured Video</DialogTitle>
+          <DialogDescription className="sr-only">
+            Watch our featured video showcasing our work
+          </DialogDescription>
+          <div className="aspect-video bg-black relative">
+            {isLoading && (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <Loader2 className="w-8 h-8 animate-spin text-white" />
+              </div>
+            )}
+            <iframe
+              key={selectedVideo}
+              src={`https://drive.google.com/file/d/${selectedVideo}/preview`}
+              className="w-full h-full"
+              allow="encrypted-media; picture-in-picture"
+              allowFullScreen
+              title="Featured Video"
+              onLoad={() => setIsLoading(false)}
+            />
+          </div>
+        </DialogContent>
+      </Dialog>
 
       {/* How We Work */}
       <section className="py-20 bg-background">
