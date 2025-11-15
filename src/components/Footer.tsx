@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, Instagram, Youtube, Linkedin } from "lucide-react";
+import logo from "@/assets/adshub-logo.png";
 
 const Footer = () => {
   return (
@@ -7,9 +8,16 @@ const Footer = () => {
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
-            <h3 className="text-2xl font-bold mb-4">
-              <span className="text-accent">Adshub</span> Media
-            </h3>
+            <div className="flex items-center gap-3 mb-4">
+              <img 
+                src={logo} 
+                alt="Adshub Media Logo" 
+                className="h-10 w-auto object-contain"
+              />
+              <h3 className="text-2xl font-bold">
+                <span className="text-accent">Adshub</span> Media
+              </h3>
+            </div>
             <p className="text-muted-foreground">
               Professional video editing, 3D animation & AI-powered videos for brands and creators.
             </p>
