@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, Instagram, Youtube, Linkedin } from "lucide-react";
+import { Mail, Phone, Instagram } from "lucide-react";
 import logo from "@/assets/adshub-logo.png";
 
 const Footer = () => {
@@ -51,23 +51,34 @@ const Footer = () => {
           <div>
             <h4 className="font-bold mb-4">Contact</h4>
             <div className="flex flex-col gap-3">
-              <a href="mailto:info@adshubmedia.com" className="flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors">
+              <a href="mailto:adshubuk@gmail.com" className="flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors">
                 <Mail size={18} />
-                info@adshubmedia.com
+                adshubuk@gmail.com
               </a>
-              <a href="tel:+1234567890" className="flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors">
+              <a href="tel:+447350054689" className="flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors">
                 <Phone size={18} />
-                +1 (234) 567-890
+                +44 7350 054689
               </a>
               <div className="flex gap-4 mt-2">
-                <a href="#" className="text-muted-foreground hover:text-accent transition-colors">
+                <a 
+                  href="https://www.instagram.com/adshub.media?igsh=NWh5d2VkbTNqc2Vn&utm_source=qr" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-accent transition-colors"
+                  aria-label="Visit our Instagram"
+                >
                   <Instagram size={20} />
                 </a>
-                <a href="#" className="text-muted-foreground hover:text-accent transition-colors">
-                  <Youtube size={20} />
-                </a>
-                <a href="#" className="text-muted-foreground hover:text-accent transition-colors">
-                  <Linkedin size={20} />
+                <a 
+                  href="https://www.tiktok.com/@adshub.media?_r=1&_t=ZN-91PeL3hJPug" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-accent transition-colors"
+                  aria-label="Visit our TikTok"
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+                  </svg>
                 </a>
               </div>
             </div>
