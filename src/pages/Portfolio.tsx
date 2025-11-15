@@ -160,9 +160,6 @@ const Portfolio = () => {
                           title={video.title}
                         />
                       </div>
-                      <div className="p-4 bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm">
-                        <h3 className="text-lg font-bold text-center group-hover:text-accent transition-colors">{video.title}</h3>
-                      </div>
                     </Card>
                   </div>
                 </CarouselItem>
