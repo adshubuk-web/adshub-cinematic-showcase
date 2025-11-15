@@ -442,15 +442,21 @@ const Home = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
+              asChild
               className="bg-cta text-cta-foreground hover:bg-cta/90 font-medium text-lg"
             >
-              Contact Now
+              <a href="mailto:adshubuk@gmail.com">
+                Contact Now
+              </a>
             </Button>
             <Button
               size="lg"
+              asChild
               className="bg-card text-card-foreground hover:bg-card/80 border border-accent font-medium text-lg"
             >
-              WhatsApp Us
+              <a href="https://wa.me/447350054689" target="_blank" rel="noopener noreferrer">
+                WhatsApp Us
+              </a>
             </Button>
           </div>
         </div>
