@@ -320,17 +320,13 @@ const Home = () => {
                 {featuredVideos.map((video, index) => (
                   <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/2">
                     <Card className="glass-card p-4 hover-lift">
-                      <div className="aspect-video rounded-lg overflow-hidden mb-4 flex items-center justify-center bg-black">
+                      <div className="aspect-video rounded-lg overflow-hidden flex items-center justify-center bg-black">
                         <iframe
                           src={`https://drive.google.com/file/d/${video.id}/preview`}
                           className="w-full h-full"
                           allow="autoplay"
                           title={video.title}
                         />
-                      </div>
-                      <h3 className="text-lg font-bold mb-2">{video.title}</h3>
-                      <div className="inline-block px-3 py-1 bg-accent/20 text-accent rounded-full text-sm font-medium">
-                        {video.category}
                       </div>
                     </Card>
                   </CarouselItem>
