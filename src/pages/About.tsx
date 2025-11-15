@@ -59,7 +59,7 @@ const About = () => {
     image: teamSanjeev
   }, {
     name: "Gourab Sarkar",
-    role: "Senior Video Editor & Script Writer",
+    role: "Co-Founder",
     description: "He creates high-level cinematic edits and powerful scripts that turn ideas into engaging, high-retention videos. His blend of storytelling, editing mastery and creativity makes every project shine.",
     image: teamGourab
   }];
