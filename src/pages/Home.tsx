@@ -135,12 +135,9 @@ const Home = () => {
 
       {/* Hero Section */}
       <section
-        className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden"
+        className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-cover bg-center md:bg-fixed"
         style={{
           backgroundImage: `linear-gradient(rgba(17, 18, 20, 0.85), rgba(10, 26, 47, 0.9)), url(${heroImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundAttachment: "fixed",
         }}
       >
         <div className="container mx-auto px-6 text-center relative z-10 animate-fade-in">
