@@ -165,11 +165,13 @@ const Home = () => {
             </Link>
             <Button
               size="lg"
-              onClick={() => window.location.href = 'https://wa.me/+447350054689'}
+              asChild
               className="bg-cta text-cta-foreground hover:bg-cta/90 font-medium text-lg"
             >
-              <Rocket className="mr-2" size={20} />
-              Start a Project
+              <a href="https://wa.me/447350054689" target="_blank" rel="noopener noreferrer">
+                <Rocket className="mr-2" size={20} />
+                Start a Project
+              </a>
             </Button>
           </div>
         </div>
