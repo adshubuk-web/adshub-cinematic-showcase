@@ -139,7 +139,9 @@ const Portfolio = () => {
       <section className="py-16 bg-background">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Featured Work</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              <span className="gradient-text">Featured Work</span>
+            </h2>
             <p className="text-xl text-muted-foreground">
               Watch our recent projects in action
             </p>
@@ -149,8 +151,8 @@ const Portfolio = () => {
               {featuredVideos.map((video, index) => (
                 <CarouselItem key={video.id} className="md:basis-1/2 lg:basis-1/2">
                   <div className="p-4">
-                    <Card className="overflow-hidden bg-card border-border hover:border-accent transition-all duration-300">
-                      <div className="aspect-video bg-secondary">
+                    <Card className={`overflow-hidden glass-card hover-lift group stagger-${(index % 3) + 1}`}>
+                      <div className="aspect-video bg-gradient-to-br from-secondary to-primary relative overflow-hidden">
                         <iframe
                           src={`https://drive.google.com/file/d/${video.id}/preview`}
                           className="w-full h-full"
@@ -158,16 +160,16 @@ const Portfolio = () => {
                           title={video.title}
                         />
                       </div>
-                      <div className="p-4">
-                        <h3 className="text-lg font-bold text-center">{video.title}</h3>
+                      <div className="p-4 bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm">
+                        <h3 className="text-lg font-bold text-center group-hover:text-accent transition-colors">{video.title}</h3>
                       </div>
                     </Card>
                   </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
+            <CarouselPrevious className="glass hover-glow border-accent/30" />
+            <CarouselNext className="glass hover-glow border-accent/30" />
           </Carousel>
         </div>
       </section>
