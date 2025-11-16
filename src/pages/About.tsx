@@ -148,7 +148,7 @@ const About = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 animate-slide-up">
             Meet The Team
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="flex justify-center max-w-2xl mx-auto">
             {team.map((member, index) => <Card key={index} className="p-8 bg-card border-border hover:border-accent transition-all duration-300 hover:shadow-lg hover:shadow-accent/20 animate-slide-up" style={{
             animationDelay: `${index * 0.1}s`
           }}>
