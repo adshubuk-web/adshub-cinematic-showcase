@@ -213,6 +213,84 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Graphics Showcase Section */}
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-12 animate-slide-up">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              GRAPHIC DESIGN PORTFOLIO
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Thumbnails, posters, social media creatives & branding materials
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-fade-in">
+            {[
+              {
+                title: "YouTube Thumbnail",
+                category: "Social Media",
+                color: "from-red-500 to-orange-500",
+              },
+              {
+                title: "Brand Poster",
+                category: "Print Design",
+                color: "from-purple-500 to-pink-500",
+              },
+              {
+                title: "Instagram Post",
+                category: "Social Media",
+                color: "from-blue-500 to-cyan-500",
+              },
+              {
+                title: "Channel Art",
+                category: "Branding",
+                color: "from-green-500 to-teal-500",
+              },
+              {
+                title: "Product Banner",
+                category: "Marketing",
+                color: "from-yellow-500 to-amber-500",
+              },
+              {
+                title: "Event Flyer",
+                category: "Print Design",
+                color: "from-indigo-500 to-violet-500",
+              },
+            ].map((graphic, index) => (
+              <Card
+                key={index}
+                className="group relative overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl border-accent/30 bg-card"
+              >
+                <div className={`aspect-video bg-gradient-to-br ${graphic.color} relative`}>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Palette className="w-16 h-16 text-white/80" />
+                  </div>
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <span className="text-white text-lg font-medium">View Design</span>
+                  </div>
+                </div>
+                <div className="p-4">
+                  <h3 className="font-bold text-lg mb-1">{graphic.title}</h3>
+                  <p className="text-sm text-muted-foreground">{graphic.category}</p>
+                </div>
+              </Card>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link to="/portfolio">
+              <Button
+                size="lg"
+                className="bg-accent text-accent-foreground hover:bg-accent/90 font-medium"
+              >
+                View All Designs →
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* AI Video Section */}
       <section className="py-20 bg-primary">
         <div className="container mx-auto px-6">
