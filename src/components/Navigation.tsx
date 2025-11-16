@@ -33,7 +33,7 @@ const Navigation = () => {
             </Link>
             
             <Button asChild className="bg-cta text-cta-foreground hover:bg-cta/90 font-medium hover-glow">
-              <a href="https://wa.me/447350054689" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/918116038240" target="_blank" rel="noopener noreferrer">
                 Get a Quote
               </a>
             </Button>
@@ -56,11 +56,11 @@ const Navigation = () => {
             <Link to="/about" onClick={() => setIsMenuOpen(false)} className={`text-foreground hover:text-accent transition-colors ${isActive('/about') ? 'text-accent font-bold' : ''}`}>
               About Us
             </Link>
-            <a href="https://wa.me/447350054689" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-accent transition-colors">
+            <a href="https://wa.me/918116038240" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-accent transition-colors">
               Contact
             </a>
             <Button asChild className="bg-cta text-cta-foreground hover:bg-cta/90 font-medium w-full hover-glow">
-              <a href="https://wa.me/447350054689" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/918116038240" target="_blank" rel="noopener noreferrer">
                 Get a Quote
               </a>
             </Button>

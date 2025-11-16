@@ -49,9 +49,9 @@ const Footer = () => {
                 <Mail size={18} />
                 adshubuk@gmail.com
               </a>
-              <a href="tel:+447350054689" className="flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors">
+              <a href="tel:+918116038240" className="flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors">
                 <Phone size={18} />
-                +44 7350 054689
+                +91 8116 038240
               </a>
               <div className="flex gap-4 mt-2">
                 <a href="https://www.instagram.com/adshub.media?igsh=NWh5d2VkbTNqc2Vn&utm_source=qr" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent transition-colors" aria-label="Visit our Instagram">

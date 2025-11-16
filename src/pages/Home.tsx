@@ -166,7 +166,7 @@ const Home = () => {
               asChild
               className="bg-cta text-cta-foreground hover:bg-cta/90 font-medium text-lg"
             >
-              <a href="https://wa.me/447350054689" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/918116038240" target="_blank" rel="noopener noreferrer">
                 <Rocket className="mr-2" size={20} />
                 Start a Project
               </a>
@@ -534,7 +534,7 @@ const Home = () => {
               asChild
               className="bg-card text-card-foreground hover:bg-card/80 border border-accent font-medium text-lg"
             >
-              <a href="https://wa.me/447350054689" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/918116038240" target="_blank" rel="noopener noreferrer">
                 WhatsApp Us
               </a>
             </Button>
