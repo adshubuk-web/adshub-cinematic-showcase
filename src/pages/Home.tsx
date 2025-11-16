@@ -32,6 +32,10 @@ import graphics1 from "@/assets/graphics-1.jpg";
 import graphics2 from "@/assets/graphics-2.jpg";
 import graphics3 from "@/assets/graphics-3.jpg";
 import graphics4 from "@/assets/graphics-4.jpg";
+import graphics5 from "@/assets/graphics-5.jpg";
+import graphics6 from "@/assets/graphics-6.jpg";
+import graphics7 from "@/assets/graphics-7.jpg";
+import graphics8 from "@/assets/graphics-8.webp";
 
 const Home = () => {
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
@@ -238,12 +242,16 @@ const Home = () => {
             className="w-full max-w-4xl mx-auto"
           >
             <CarouselContent>
-              {[
-                { src: graphics1, title: "Food Photography 1", category: "Graphic Design" },
-                { src: graphics2, title: "Food Photography 2", category: "Graphic Design" },
-                { src: graphics3, title: "Food Photography 3", category: "Graphic Design" },
-                { src: graphics4, title: "Food Photography 4", category: "Graphic Design" },
-              ].map((graphic, index) => (
+            {[
+              { src: graphics1, title: "Food Photography 1", category: "Graphic Design" },
+              { src: graphics2, title: "Food Photography 2", category: "Graphic Design" },
+              { src: graphics3, title: "Food Photography 3", category: "Graphic Design" },
+              { src: graphics4, title: "Food Photography 4", category: "Graphic Design" },
+              { src: graphics5, title: "Food Photography 5", category: "Graphic Design" },
+              { src: graphics6, title: "Food Photography 6", category: "Graphic Design" },
+              { src: graphics7, title: "Food Photography 7", category: "Graphic Design" },
+              { src: graphics8, title: "Food Photography 8", category: "Graphic Design" },
+            ].map((graphic, index) => (
                 <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                   <div className="p-4">
                     <Card className="group relative overflow-hidden border-accent/30 shadow-2xl transition-all duration-300 hover:shadow-accent/20">
