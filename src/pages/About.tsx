@@ -53,13 +53,8 @@ const About = () => {
   }];
   const clientTypes = ["Content Creators & YouTubers", "Educational Institutions", "E-commerce Brands", "Marketing Agencies", "Tech Startups", "Small Businesses"];
   const team = [{
-    name: "Sanjeev Singh",
-    role: "Founder",
-    description: "I create cinematic videos, 3D animations, motion graphics and AI-powered content that help brands and creators grow. My focus is clean visuals, strong storytelling and fast, professional delivery.",
-    image: teamSanjeev
-  }, {
     name: "Gourab Sarkar",
-    role: "Co-Founder",
+    role: "Founder",
     description: "He creates high-level cinematic edits and powerful scripts that turn ideas into engaging, high-retention videos. His blend of storytelling, editing mastery and creativity makes every project shine.",
     image: teamGourab
   }];
