@@ -234,7 +234,7 @@ const Home = () => {
               align: "center",
               loop: true,
             }}
-            className="w-full max-w-6xl mx-auto"
+            className="w-full max-w-4xl mx-auto"
           >
             <CarouselContent>
               {[
@@ -243,10 +243,10 @@ const Home = () => {
                 { src: graphics3, title: "Food Photography 3", category: "Graphic Design" },
                 { src: graphics4, title: "Food Photography 4", category: "Graphic Design" },
               ].map((graphic, index) => (
-                <CarouselItem key={index} className="md:basis-4/5 lg:basis-3/4">
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                   <div className="p-4">
                     <Card className="group relative overflow-hidden border-accent/30 shadow-2xl transition-all duration-300 hover:shadow-accent/20">
-                      <div className="relative aspect-video overflow-hidden rounded-xl">
+                      <div className="relative aspect-[3/4] overflow-hidden rounded-xl">
                         <img
                           src={graphic.src}
                           alt={graphic.title}
