@@ -270,10 +270,6 @@ const Home = () => {
                     <span className="text-white text-lg font-medium">View Design</span>
                   </div>
                 </div>
-                <div className="p-4">
-                  <h3 className="font-bold text-lg mb-1">{graphic.title}</h3>
-                  <p className="text-sm text-muted-foreground">{graphic.category}</p>
-                </div>
               </Card>
             ))}
           </div>
