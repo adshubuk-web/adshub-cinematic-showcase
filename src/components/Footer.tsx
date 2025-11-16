@@ -1,19 +1,13 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, Instagram } from "lucide-react";
 import logo from "@/assets/adshub-logo.png";
-
 const Footer = () => {
-  return (
-    <footer className="bg-primary border-t border-border py-12">
+  return <footer className="bg-primary border-t border-border py-12">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <img 
-                src={logo} 
-                alt="Adshub Media Logo" 
-                className="h-10 w-auto object-contain"
-              />
+              <img src={logo} alt="Adshub Media Logo" className="h-10 w-auto object-contain" />
               <h3 className="text-2xl font-bold">
                 <span className="text-accent">Adshub</span> Media
               </h3>
@@ -60,25 +54,11 @@ const Footer = () => {
                 +44 7350 054689
               </a>
               <div className="flex gap-4 mt-2">
-                <a 
-                  href="https://www.instagram.com/adshub.media?igsh=NWh5d2VkbTNqc2Vn&utm_source=qr" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-accent transition-colors"
-                  aria-label="Visit our Instagram"
-                >
+                <a href="https://www.instagram.com/adshub.media?igsh=NWh5d2VkbTNqc2Vn&utm_source=qr" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent transition-colors" aria-label="Visit our Instagram">
                   <Instagram size={20} />
                 </a>
-                <a 
-                  href="https://www.tiktok.com/@adshub.media?_r=1&_t=ZN-91PeL3hJPug" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-accent transition-colors"
-                  aria-label="Visit our TikTok"
-                >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
-                  </svg>
+                <a href="https://www.tiktok.com/@adshub.media?_r=1&_t=ZN-91PeL3hJPug" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent transition-colors" aria-label="Visit our TikTok">
+                  
                 </a>
               </div>
             </div>
@@ -89,8 +69,6 @@ const Footer = () => {
           <p>&copy; {new Date().getFullYear()} Adshub Media. All rights reserved.</p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
