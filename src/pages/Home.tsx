@@ -233,6 +233,7 @@ const Home = () => {
             opts={{
               align: "center",
               loop: true,
+              startIndex: 2,
             }}
             className="w-full max-w-4xl mx-auto"
           >
@@ -252,12 +253,6 @@ const Home = () => {
                           alt={graphic.title}
                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                            <h3 className="text-xl font-semibold mb-1">{graphic.title}</h3>
-                            <p className="text-sm text-white/80">{graphic.category}</p>
-                          </div>
-                        </div>
                       </div>
                     </Card>
                   </div>
