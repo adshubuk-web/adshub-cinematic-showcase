@@ -28,6 +28,10 @@ import {
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Loader2 } from "lucide-react";
 import heroImage from "@/assets/hero-editing-room.jpg";
+import graphics1 from "@/assets/graphics-1.jpg";
+import graphics2 from "@/assets/graphics-2.jpg";
+import graphics3 from "@/assets/graphics-3.jpg";
+import graphics4 from "@/assets/graphics-4.jpg";
 
 const Home = () => {
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
@@ -225,54 +229,44 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-fade-in">
-            {[
-              {
-                title: "YouTube Thumbnail",
-                category: "Social Media",
-                color: "from-red-500 to-orange-500",
-              },
-              {
-                title: "Brand Poster",
-                category: "Print Design",
-                color: "from-purple-500 to-pink-500",
-              },
-              {
-                title: "Instagram Post",
-                category: "Social Media",
-                color: "from-blue-500 to-cyan-500",
-              },
-              {
-                title: "Channel Art",
-                category: "Branding",
-                color: "from-green-500 to-teal-500",
-              },
-              {
-                title: "Product Banner",
-                category: "Marketing",
-                color: "from-yellow-500 to-amber-500",
-              },
-              {
-                title: "Event Flyer",
-                category: "Print Design",
-                color: "from-indigo-500 to-violet-500",
-              },
-            ].map((graphic, index) => (
-              <Card
-                key={index}
-                className="group relative overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl border-accent/30 bg-card"
-              >
-                <div className={`aspect-video bg-gradient-to-br ${graphic.color} relative`}>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Palette className="w-16 h-16 text-white/80" />
+          <Carousel
+            opts={{
+              align: "center",
+              loop: true,
+            }}
+            className="w-full max-w-6xl mx-auto"
+          >
+            <CarouselContent>
+              {[
+                { src: graphics1, title: "Food Photography 1", category: "Graphic Design" },
+                { src: graphics2, title: "Food Photography 2", category: "Graphic Design" },
+                { src: graphics3, title: "Food Photography 3", category: "Graphic Design" },
+                { src: graphics4, title: "Food Photography 4", category: "Graphic Design" },
+              ].map((graphic, index) => (
+                <CarouselItem key={index} className="md:basis-4/5 lg:basis-3/4">
+                  <div className="p-4">
+                    <Card className="group relative overflow-hidden border-accent/30 shadow-2xl transition-all duration-300 hover:shadow-accent/20">
+                      <div className="relative aspect-video overflow-hidden rounded-xl">
+                        <img
+                          src={graphic.src}
+                          alt={graphic.title}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                            <h3 className="text-xl font-semibold mb-1">{graphic.title}</h3>
+                            <p className="text-sm text-white/80">{graphic.category}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </Card>
                   </div>
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="text-white text-lg font-medium">View Design</span>
-                  </div>
-                </div>
-              </Card>
-            ))}
-          </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="left-4 bg-background/80 hover:bg-background border-accent/50" />
+            <CarouselNext className="right-4 bg-background/80 hover:bg-background border-accent/50" />
+          </Carousel>
 
           <div className="text-center mt-12">
             <Link to="/portfolio">
