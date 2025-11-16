@@ -158,8 +158,8 @@ const About = () => {
             animationDelay: `${index * 0.1}s`
           }}>
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-32 h-32 rounded-full overflow-hidden mb-6 border-4 border-accent/20 hover:border-accent transition-all duration-300">
-                    <img src={member.image} alt={`${member.name} - ${member.role}`} className="w-full h-full object-cover" />
+                  <div className="w-32 h-32 rounded-full overflow-hidden mb-6 border-4 border-accent/20 hover:border-accent transition-all duration-300 bg-muted">
+                    <img src={member.image} alt={`${member.name} - ${member.role}`} className="w-full h-full object-contain" />
                   </div>
                   <h3 className="text-2xl font-bold mb-2">{member.name}</h3>
                   <p className="text-accent font-semibold mb-4">{member.role}</p>
