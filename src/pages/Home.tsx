@@ -231,36 +231,34 @@ const Home = () => {
 
           <Carousel
             opts={{
-              align: "center",
+              align: "start",
               loop: true,
-              startIndex: 2,
+              dragFree: true,
             }}
-            className="w-full max-w-4xl mx-auto"
+            className="w-full max-w-7xl mx-auto"
           >
-            <CarouselContent>
+            <CarouselContent className="-ml-2 md:-ml-4">
               {[
                 { src: graphics1, title: "Food Photography 1", category: "Graphic Design" },
                 { src: graphics2, title: "Food Photography 2", category: "Graphic Design" },
                 { src: graphics3, title: "Food Photography 3", category: "Graphic Design" },
                 { src: graphics4, title: "Food Photography 4", category: "Graphic Design" },
               ].map((graphic, index) => (
-                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                  <div className="p-4">
-                    <Card className="group relative overflow-hidden border-accent/30 shadow-2xl transition-all duration-300 hover:shadow-accent/20">
-                      <div className="relative aspect-[3/4] overflow-hidden rounded-xl">
-                        <img
-                          src={graphic.src}
-                          alt={graphic.title}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                        />
-                      </div>
-                    </Card>
-                  </div>
+                <CarouselItem key={index} className="pl-2 md:pl-4 basis-full md:basis-1/2 lg:basis-1/3">
+                  <Card className="group relative overflow-hidden border-accent/30 shadow-2xl transition-all duration-300 hover:shadow-accent/20">
+                    <div className="relative aspect-[3/4] overflow-hidden rounded-xl">
+                      <img
+                        src={graphic.src}
+                        alt={graphic.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                    </div>
+                  </Card>
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="left-4 bg-background/80 hover:bg-background border-accent/50" />
-            <CarouselNext className="right-4 bg-background/80 hover:bg-background border-accent/50" />
+            <CarouselPrevious className="-left-12 bg-background/80 hover:bg-background border-accent/50" />
+            <CarouselNext className="-right-12 bg-background/80 hover:bg-background border-accent/50" />
           </Carousel>
 
           <div className="text-center mt-12">
